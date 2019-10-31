@@ -1,8 +1,15 @@
 class MyNewThread extends Thread {
-    private boolean running = true;
+    private Counter counter;
+
+    public MyNewThread(Counter counter) {
+        this.counter = counter;
+    }
 
     public void run() {
-        Representation representation = new Representation();
-        representation.increment();
+        for (int i = 0; i < 100 ; i++) {
+            counter.increment();
+            System.out.println("hello from thread " + counter.getCounter()
+                    + " " + Thread.currentThread().getName());
+        }
     }
 }
