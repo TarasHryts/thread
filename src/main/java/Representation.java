@@ -1,16 +1,17 @@
 public class Representation {
-    public static void main(String[] args) {
-        MyThread myThread1 = new MyThread();
-        myThread1.start();
-        MyThread myThread2 = new MyThread();
-        myThread2.start();
-    }
-}
+    public static int count = 0;
 
-class MyThread extends Thread {
-    public void run() {
-        for (int i = 0; i < 1000; i++) {
-            System.out.println("hello from my Thread " + i);
+    public static void main(String[] args) {
+        MyNewThread myNewThread = new MyNewThread();
+        Runner runner = new Runner();
+        myNewThread.start();
+        new Thread(runner).start();
+    }
+
+    public void increment() {
+        while (count < 100) {
+            count++;
+            System.out.println("count = " + count + " " + Thread.currentThread().getName());
         }
     }
 }
