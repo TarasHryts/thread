@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 public class MyThread implements Callable<Long> {
-    List<Long> longList;
+    private List<Long> longList;
 
     public MyThread(List<Long> longList) {
         this.longList = longList;
